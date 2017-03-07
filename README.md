@@ -17,6 +17,16 @@ Installs and start nsd on boot. This playbook does not handle zone files! Get mo
 * `nsd_remote_control_enable: false`
 * `nsd_remote_control_port: 8952`
 * `nsd_remote_control_interfaces: [127.0.0.1, "::1"]`
+* `nsd_verbosity:`
+* `nsd_username:`
+* `nsd_chroot_dir:`
+* `nsd_zonelistfile`
+* `nsd_pidfile:`
+* `nsd_xfrdfile:`
+* `nsd_xfrdir:`
+* `nsd_version:` 
+* `nsd_statistics:` statistics interval
+
 
 ## Dependencies
 None.

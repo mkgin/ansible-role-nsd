@@ -47,21 +47,33 @@ server:
 
     # Verbosity level.
     # verbosity: 0
+{% if nsd_verbosity is defined -%} 
+    verbosity: {{ nsd_verbosity }}
+{% endif -%}
 
     # After binding socket, drop user privileges.
     # can be a username, id or id.gid.
     # username: nsd
+{% if nsd_username is defined -%} 
+    username: {{ nsd_username }}
+{% endif -%}
 
     # Run NSD in a chroot-jail.
     # make sure to have pidfile and database reachable from there.
     # by default, no chroot-jail is used.
     # chroot: "/etc/nsd"
+{% if nsd_chroot_dir is defined -%} 
+    chroot: {{ nsd_chroot_dir }}
+{% endif -%}
 
     # The directory for zonefile: files.  The daemon chdirs here.
     # zonesdir: "/etc/nsd"
 
     # the list of dynamically added zones.
     # zonelistfile: "/var/lib/nsd/zone.list"
+{% if nsd_zonelistfile is defined -%} 
+    zonelistfile: {{ nsd_zonelistfile }}
+{% endif -%}
 
     # the database to use
     # if set to "" then no disk-database is used, less memory usage.
@@ -73,14 +85,23 @@ server:
 
     # File to store pid for nsd in.
     # pidfile: "/run/nsd/nsd.pid"
+{% if nsd_pidfile is defined -%} 
+    pidfile: {{ nsd_pidfile }}
+{% endif -%}
 
     # The file where secondary zone refresh and expire timeouts are kept.
     # If you delete this file, all secondary zones are forced to be
     # 'refreshing' (as if nsd got a notify).  Set to "" to disable.
     # xfrdfile: "/var/lib/nsd/xfrd.state"
+{% if nsd_xfrdfile is defined -%} 
+    xfrdfile: {{ nsd_xfrdfile }}
+{% endif -%}
 
     # The directory where zone transfers are stored, in a subdir of it.
     # xfrdir: "/tmp"
+{% if nsd_xfrdir is defined -%} 
+    xfrdir: {{ nsd_xfrdir }}
+{% endif -%}
 
     # don't answer VERSION.BIND and VERSION.SERVER CHAOS class queries
     hide-version: {{ bool(nsd_hide_version) }}
@@ -88,6 +109,10 @@ server:
     # version string the server responds with for chaos queries.
     # default is 'NSD x.y.z' with the server's version number.
     # version: "NSD"
+{% if nsd_version is defined -%} 
+    version: {{ nsd_version }}
+{% endif -%}
+
 
     # identify the server (CH TXT ID.SERVER entry).
     identity: "{{ nsd_identity }}"
@@ -114,6 +139,9 @@ server:
     # statistics are produced every number of seconds. Prints to log.
     # Default is 0, meaning no statistics are produced.
     # statistics: 3600
+{% if nsd_statistics is defined -%} 
+    statistics: {{ nsd_statistics }}
+{% endif -%}
 
     # Number of seconds between reloads triggered by xfrd.
     # xfrd-reload-timeout: 1
