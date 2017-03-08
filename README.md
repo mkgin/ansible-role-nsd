@@ -2,7 +2,7 @@
 Installs and start nsd on boot. This playbook does not handle zone files! Get more informations about nsd at [https://www.nlnetlabs.nl/projects/nsd/]()
 
 ## Requirements
-* Ubuntu (>=14.04) or Debian (>=8)
+* Ubuntu (>=14.04) or Debian (>=8) or EL7 based
 * NSD (>=4)
 
 ## Role Variables

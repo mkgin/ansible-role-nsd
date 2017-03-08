@@ -1,0 +1,1 @@
+Put nsd configuration in chroot path if set

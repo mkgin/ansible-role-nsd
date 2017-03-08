@@ -12,6 +12,15 @@
   yum: name=nsd state=installed
   when: ansible_os_family == 'RedHat' or ansible_os_family == 'Oracle Linux'
 
+- name: Create chroot dir
+  file:
+  - path: {{ nsd_chroot_dir }}
+  - state: directory
+  - mode: 0755
+  - owner: {{ nsd_username }}
+  - group: {{ nsd_username }}
+  when: nsd_chroot_dir is defined
+
 - name: Create SSL keys and certificates
   command: nsd-control-setup creates=/etc/nsd/nsd_control.pem
   when: nsd_remote_control_enable == "yes"
