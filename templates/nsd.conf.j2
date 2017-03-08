@@ -217,6 +217,8 @@ remote-control:
     # nsd-control certificate file.
     control-cert-file: "/etc/nsd/nsd_control.pem"
 
+{% if zones  %}
+
 {% for zone in zones %}
 {% if zone.secret is defined %}
 key:
@@ -242,6 +244,7 @@ zone:
 {% endif %}
 {% endfor %}
 {% endif %}
+
 {% if zone.masters is defined %}
 {% for master in zone.masters %}
 {% if zone.secret is defined %}
@@ -253,5 +256,5 @@ zone:
 {% endif %}
 {% endfor %}
 {% endif %}
-
 {% endfor %}
+{% endif %}
