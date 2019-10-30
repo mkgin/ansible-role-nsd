@@ -1,5 +1,6 @@
 # ansible-role-nsd [![Build Status](https://travis-ci.org/elnappo/ansible-role-nsd.svg?branch=master)](https://travis-ci.org/elnappo/ansible-role-nsd)
-Installs and start nsd on boot. This playbook does not handle zone files! Get more informations about nsd at [https://www.nlnetlabs.nl/projects/nsd/]()
+Installs and start NSD name server on boot. This playbook does not handle zone files! Get more
+information about nsd at [https://www.nlnetlabs.nl/projects/nsd/]().
 
 ## Requirements
 * Ubuntu (>=14.04) or Debian (>=8) or EL7 based
@@ -51,9 +52,9 @@ None.
          - 10.0.0.2
          - 10.0.0.3
       - name: example.org
-  
+
   roles:
-    - { role: elnappoo.nsd, zones: "{{ ns1_zones }}"}
+    - { role: elnappo.nsd, zones: "{{ ns1_zones }}"}
 ```
 
 ## License
